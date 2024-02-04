@@ -1,4 +1,4 @@
-module github.com/pixil98/go-testutil
+module github.com/pixil98/go-testutil/testutil
 
 go 1.19
 
