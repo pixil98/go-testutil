@@ -7,13 +7,13 @@ import (
 	"github.com/google/go-cmp/cmp"
 )
 
-func AssertEqual(t *testing.T, description string, actual interface{}, expected interface{}, cmpOpts ...cmp.Option) {
+func AssertEqual(t testing.TB, description string, actual interface{}, expected interface{}, cmpOpts ...cmp.Option) {
 	if !cmp.Equal(actual, expected, cmpOpts...) {
 		t.Errorf("Unexpected %s:\n%s\n\n", description, cmp.Diff(expected, actual, cmpOpts...))
 	}
 }
 
-func AssertErrorContains(t *testing.T, err error, pieces ...string) {
+func AssertErrorContains(t testing.TB, err error, pieces ...string) {
 	for _, p := range pieces {
 		if err == nil {
 			if p != "" {
